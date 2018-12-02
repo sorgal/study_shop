@@ -1,6 +1,6 @@
 defmodule StudyShopWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :study_shop
-
+  
   socket "/socket", StudyShopWeb.UserSocket,
     websocket: true,
     longpoll: false

@@ -15,7 +15,8 @@ config :study_shop, StudyShopWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "DMWwTqmqavYhDiGNJvtTv+WWUhmXyRa//c+zX5wlDivfI0wXEyIGJ1PG8ySbPR6k",
   render_errors: [view: StudyShopWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: StudyShop.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: StudyShop.PubSub, adapter: Phoenix.PubSub.PG2],
+  http: [protocol_options: [max_request_line_length: 8192, max_header_value_length: 8192]]
 
 # Configures Elixir's Logger
 config :logger, :console,
