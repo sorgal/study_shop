@@ -35,12 +35,16 @@ defmodule StudyShop.Accounts.Credential do
       get_change(changeset, :password)
       |> Kernel.<>(get_change(changeset, :salt))
       |> encrypt_password
-      |> Base.encode16
 
     put_change(changeset, :password, hashed_password)
   end
 
-  defp encrypt_password(raw_value) do
+  defp sha_password(raw_value) do
     :crypto.hash(:sha256, raw_value)
+  end
+
+  def encrypt_password(raw_value) do
+    sha_password(raw_value)
+    |> Base.encode16
   end
 end
